@@ -104,3 +104,12 @@ body {
   font-weight: 700;
   pointer-events: none;
 }
+
+/* FAQ/back button specific helpers (append to style.css) */
+.star-btn { transition: transform 0.18s, box-shadow 0.18s, opacity 0.18s; }
+
+/* make the orb animation a little slower for fixed back button so dots feel calm */
+#back-home .star-btn__orb { animation-duration: 4s; opacity: 0.95; }
+
+/* ensure canvas draws crisply on high-DPI screens */
+.star-btn__bg { image-rendering: -webkit-optimize-contrast; }
