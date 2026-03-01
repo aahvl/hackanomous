@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hackanomous FAQ</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    body {
+      font-family: 'Coming Soon', cursive;
+      background: #fff;
+      color: #111;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Back button */
+    #back-home {
+      position: fixed;
+      top: 18px;
+      left: 18px;
+      height: 42px;
+      padding: 0 14px;
+      border-radius: 9999px;
+      z-index: 999;
+      animation: backIn 0.6s cubic-bezier(.2,.9,.3,1) forwards;
+    }
+
+    #back-home .star-btn__label {
+      font-size: 1rem;
+      color: #111;
+      -webkit-text-fill-color: initial;
+      background: none;
+    }
+
+    @keyframes backIn {
+      from { opacity: 0; transform: translateY(-14px) scale(.95); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    /* FAQ container */
+    main.faq {
+      max-width: 900px;
+      margin: 6rem auto 0;
+      padding: 2rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      font-size: 2.6rem;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-title {
+      font-size: 1.6rem;
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .qa {
+      margin: 1.25rem 0;
+      padding: 1rem 1.2rem;
+      border-radius: 12px;
+      background: rgba(0,0,0,0.035);
+    }
+
+    .q {
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+
+    .a {
+      color: #222;
+      line-height: 1.45;
+    }
+
+    /* Bottom banner hero */
+    .faq-hero {
+      width: 100%;
+      max-width: 1100px;
+      margin: 3rem auto 4.5rem;
+      height: clamp(140px, 22vw, 240px);
+      border-radius: 14px;
+      background-image: url('banner.png');
+      background-size: cover;
+      background-position: center 60%;
+      background-repeat: no-repeat;
+      position: relative;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: heroIn 0.7s cubic-bezier(.2,.9,.3,1) 0.25s forwards;
+      box-shadow: 0 18px 50px rgba(0,0,0,0.08);
+    }
+
+    @keyframes heroIn {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .faq-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(255,255,255,0.0), rgba(0,0,0,0.06));
+      pointer-events: none;
+    }
+
+    @media (max-width: 640px) {
+      main.faq { margin-top: 5.5rem; padding: 1.25rem; }
+      #back-home { top: 12px; left: 12px; height: 38px; padding: 0 10px; }
+      .faq-hero { margin: 2rem auto 3rem; height: clamp(120px, 30vw, 180px); }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Back button -->
+  <a class="star-btn" id="back-home" href="index.html">
+    <span class="star-btn__orb"></span>
+    <canvas class="star-btn__bg"></canvas>
+    <span class="star-btn__border"></span>
+    <span class="star-btn__label">&larr; Back</span>
+  </a>
+
+  <main class="faq">
+
+    <h1>Hackanomous FAQ</h1>
+    <p style="text-align:center; max-width:700px; margin:0 auto 2rem;">
+      Welcome to Hackanomous! If your question isn’t answered here, feel free to ask in <strong>#hackanomous-help</strong>.
+    </p>
+
+    <!-- General Info -->
+    <div class="section-title">📘 General Info</div>
+
+    <div class="qa">
+      <div class="q">What is Hackanomous?</div>
+      <div class="a">
+        Hackanomous (<strong><a href="https://hackclub.enterprise.slack.com/archives/C0AHPG4LPUM" target="_blank" rel="noopener" class="star-btn" id="cta-slack">#hackanomous</a></strong>, <a href="https://aahvl.github.io/hackanomous/" target="_blank" rel="noopener" class="star-btn" id="cta-slack">Website</a>) is a Hack Club YSWS where you build your AI skills, make something awesome to show off, and win AI credits and more. Submit any AI or ML project (subject to T&Cs) and earn stickers, credits, or even win big.
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="q">How long will Hackanomous run for?</div>
+      <div class="a">
+        The end date is still to be confirmed, but it will run for at least two months. This may change.
+      </div>
+    </div>
+
+    <!-- Time Tracking -->
+    <div class="section-title">⏱️ Time Tracking</div>
+
+    <div class="qa">
+      <div class="q">How do I track my time spent coding or designing?</div>
+      <div class="a">
+        Time tracking is important for project reviews. Use <strong>Hackatime</strong>, a free open‑source tool for Hack Clubbers. It measures time spent on your project. If your editor isn’t supported, you can use <strong>Lapse</strong>.
+      </div>
+    </div>
+
+    <!-- Submitting Projects -->
+    <div class="section-title">📤 Submitting Projects and Getting Bolts</div>
+
+    <div class="qa">
+      <div class="q">How do I submit my project?</div>
+      <div class="a">
+        Submitting your project sends it to reviewers who give feedback and trigger your bolt payout.
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="q">When will I get my bolts?</div>
+      <div class="a">
+        You receive bolts once your project is approved. The amount depends on quality and effort.
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="q">What can I spend my bolts on?</div>
+      <div class="a">
+        You can spend bolts on hardware funding or in the shop for AI credits, stickers, and more. Saving bolts lets you win bigger prizes.
+      </div>
+    </div>
+
+    <!-- Slack Issues -->
+    <div class="section-title">💬 Hack Club Slack Issues</div>
+
+    <div class="qa">
+      <div class="q">Why can’t I access most Slack channels?</div>
+      <div class="a">
+        When you join Hack Club, you get a Hack Club Slack account. To unlock all channels, open your Slackbot DM, scroll to the top, and follow the steps.
+      </div>
+    </div>
+
+    <!-- Rules -->
+    <div class="section-title">📜 Rules and Restrictions</div>
+
+    <div class="qa">
+      <div class="q">Who can take part?</div>
+      <div class="a">
+        Hackanomous is open to ages 13–18. Age verification is required before shipping prizes.
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="q">What kinds of projects can I make?</div>
+      <div class="a">
+        Any AI or ML project. Hardware and software are reviewed differently. No vibe coding. AI usage must be declared and under 30%.
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="q">Can I submit my project to other Hack Club programs?</div>
+      <div class="a">
+        No double‑dipping. Hackanomous projects cannot be submitted to other reward‑granting programs.
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="q">Can I collaborate with others?</div>
+      <div class="a">
+        Yes, up to 5 people. Each contributor must have their own commits, Hackatime hours, and project page.
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="q">Can I use AI?</div>
+      <div class="a">
+        Yes, as long as you contribute meaningful work and declare usage. Max 30% AI.
+      </div>
+    </div>
+
+    <!-- Orders -->
+    <div class="section-title">📦 Orders</div>
+
+    <div class="qa">
+      <div class="q">Will I need to pay shipping?</div>
+      <div class="a">No, Hack Club covers shipping internationally.</div>
+    </div>
+
+    <div class="qa">
+      <div class="q">Will I need to pay customs fees?</div>
+      <div class="a">Depends on the item. Check the shop or ask in the help channel.</div>
+    </div>
+
+    <div class="qa">
+      <div class="q">How long do items take to arrive?</div>
+      <div class="a">Up to a month depending on location and item.</div>
+    </div>
+
+    <div class="qa">
+      <div class="q">Can I track my order?</div>
+      <div class="a">
+        Stickers and small items have no tracking. Larger items include tracking.
+      </div>
+    </div>
+
+    <!-- Helping -->
+    <div class="section-title">🙋 Helping Behind the Scenes</div>
+
+    <div class="qa">
+      <div class="q">How can I help Hackanomous?</div>
+      <div class="a">Spread the word and help others in the help channel.</div>
+    </div>
+
+    <div class="qa">
+      <div class="q">Can I help others in the help channel?</div>
+      <div class="a">
+        Yes! Follow the FAQ, avoid giving incorrect info, and tag organisers only if someone has waited 24+ hours.
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="q">How do I join the support team?</div>
+      <div class="a">
+        Help consistently and you may be invited.
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="q">I found a bug!</div>
+      <div class="a">
+        Report it in the help channel with steps, expected behaviour, and screenshots.
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="q">Can I join the Fraud Team?</div>
+      <div class="a">
+        No. It is invite‑only and requires high trust.
+      </div>
+    </div>
+
+    <!-- Bottom hero banner -->
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
