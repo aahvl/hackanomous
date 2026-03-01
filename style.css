@@ -1,0 +1,106 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Coming Soon', cursive;
+  background: #fff;
+  color: #111;
+  overflow-x: hidden;
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: url('banner.png') center/cover no-repeat;
+}
+
+.hero-content { padding: 2rem; }
+
+.eyebrow, .title, .divider, .tagline, .star-btn { opacity: 0; }
+.eyebrow  { animation: dropIn  .5s cubic-bezier(.34,1.56,.64,1)  .1s forwards; }
+.title    { animation: bigPop  .7s cubic-bezier(.34,1.56,.64,1)  .3s forwards; }
+.divider  { animation: stretch .5s cubic-bezier(.34,1.56,.64,1)  .7s forwards; }
+.tagline  { animation: dropIn  .5s cubic-bezier(.34,1.56,.64,1)  .9s forwards; }
+.star-btn { animation: bounce  .6s cubic-bezier(.34,1.56,.64,1) 1.1s forwards; }
+
+@keyframes dropIn  { from { opacity:0; transform:translateY(-18px); }    to { opacity:1; transform:none; } }
+@keyframes bigPop  { from { opacity:0; transform:scale(.6) rotate(-3deg); } to { opacity:1; transform:none; } }
+@keyframes stretch { from { opacity:0; transform:scaleX(0); }             to { opacity:1; transform:none; } }
+@keyframes bounce  { from { opacity:0; transform:scale(.5) translateY(20px); } to { opacity:1; transform:none; } }
+
+.eyebrow {
+  font-size: 0.8rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.title {
+  font-size: clamp(3rem, 10vw, 7rem);
+  line-height: 1;
+  color: #111;
+}
+
+.divider {
+  width: 60px;
+  height: 2px;
+  background: #111;
+  margin: 1.5rem auto;
+}
+
+.tagline {
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  color: #222;
+  margin-bottom: 2rem;
+}
+
+/* star button */
+.star-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  padding: 0 1.6rem;
+  border-radius: 9999px;
+  border: 2px solid rgba(0,0,0,0.2);
+  background: transparent;
+  font-family: 'Coming Soon', cursive;
+  font-size: 1rem;
+  text-decoration: none;
+  cursor: pointer;
+  isolation: isolate;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.star-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.15); }
+
+.star-btn__orb {
+  position: absolute;
+  width: 110px;
+  aspect-ratio: 1;
+  background: radial-gradient(ellipse at center, #fff 0%, transparent 70%);
+  offset-distance: 0%;
+  animation: orb 3s linear infinite;
+  mix-blend-mode: screen;
+  opacity: 0.85;
+  pointer-events: none;
+}
+@keyframes orb { to { offset-distance: 100%; } }
+
+.star-btn__bg     { position: absolute; inset: 0; pointer-events: none; z-index: 1; }
+.star-btn__border { position: absolute; inset: 0; border-radius: inherit; border: 2px solid rgba(0,0,0,0.1); pointer-events: none; z-index: 2; }
+
+.star-btn__label {
+  position: relative;
+  z-index: 3;
+  background: linear-gradient(to top, #111, #555);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  pointer-events: none;
+}
